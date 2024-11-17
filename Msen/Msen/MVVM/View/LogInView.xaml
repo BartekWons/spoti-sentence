@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="Msen.MVVM.View.LogInView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Msen.MVVM.View"
+             xmlns:viewModel="clr-namespace:Msen.MVVM.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.DataContext>
+        <viewModel:LogInViewModel/>
+    </UserControl.DataContext>
+    
+    <Border CornerRadius="15"
+            Background="{StaticResource PrimaryBrush}">
+        <StackPanel Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <TextBox Tag="E-mail"
+                     Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource TextBoxStyle}"
+                     Margin="0,10,0,10"
+                     FontSize="20"
+                     Width="350"/>
+            <TextBox Tag="Password"
+                     Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource TextBoxStyle}"
+                     Margin="0,10,0,10"
+                     FontSize="20"
+                     Width="350"/>
+            <CheckBox Content="Remember me"
+                      Foreground="{StaticResource SecondaryBrush}"
+                      HorizontalAlignment="Right"
+                      Margin="0,0,5,0"/>
+            <Button Content="Log In"
+                    Margin="0,10,0,10"
+                    Width="100"
+                    Command="{Binding LogInCommand}"
+                    Style="{StaticResource ButtonStyle}"/>
+        </StackPanel>
+    </Border>
+</UserControl>
